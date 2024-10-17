@@ -385,7 +385,13 @@ As you can see, commands that succeed typically return `0` and commands that fai
 ### CTF
 
 ```
-
+hacker@processes~process-exit-codes:~$ /challenge/get-code
+Exiting with an error code!
+hacker@processes~process-exit-codes:~$ echo $?
+6
+hacker@processes~process-exit-codes:~$ /challenge/submit-code 6
+CORRECT! Here is your flag:
+pwn.college{Uby_xo9nLkNrqaiSnLainMkkW7J.dljN4UDL5kTO0czW}
 ```
 
 ---
