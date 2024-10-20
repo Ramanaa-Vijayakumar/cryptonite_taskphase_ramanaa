@@ -54,6 +54,10 @@ Each process has a directory in which it's currently hanging out.
 ### CTF
 
 ```
+hacker@paths~position-elsewhere:~$ /challenge/run
+Incorrect...
+You are not currently in the /sys directory.
+Please use the `cd` utility to change directory appropriately.
 hacker@paths~position-thy-self:~$ cd /sys
 hacker@paths~position-thy-self:/sys$ /challenge/run
 Correct!!!
