@@ -16,10 +16,12 @@ This style of path, one that starts with the root directory, is referred to as a
 
 ### CTF
 
-`hacker@paths~the-root:~$ /pwn`
-`BOOM!!!`
-`Here is your flag:`
-`pwn.college{83vDBNrpi3O_0lcXEfNQQZo5k3F.dhzN5QDL5kTO0czW}`
+```
+hacker@paths~the-root:~$ /pwn
+BOOM!!!
+Here is your flag:
+pwn.college{83vDBNrpi3O_0lcXEfNQQZo5k3F.dhzN5QDL5kTO0czW}
+```
 
 ---
 
@@ -27,10 +29,12 @@ This style of path, one that starts with the root directory, is referred to as a
 
 ### CTF
 
-`hacker@paths~program-and-absolute-paths:~$ /challenge/run`
-`Correct!!!`
-`/challenge/run is an absolute path! Here is your flag:`
-`pwn.college{8hUf2BszjYdAbeQS6WyS_FGTStE.dVDN1QDL5kTO0czW}`
+```
+hacker@paths~program-and-absolute-paths:~$ /challenge/run
+Correct!!!
+/challenge/run is an absolute path! Here is your flag:
+pwn.college{8hUf2BszjYdAbeQS6WyS_FGTStE.dVDN1QDL5kTO0czW}
+```
 
 ---
 
@@ -39,8 +43,10 @@ This style of path, one that starts with the root directory, is referred to as a
 The Linux filesystem has tons of directories with tons of files.
 You can navigate around directories by using the ***cd*** (**c**hange **d**irectory) command and passing a path to it as an argument, as so:
 
-`hacker@dojo:~$ cd /some/new/directory`
-`hacker@dojo:~/some/new/directory$ cd /some/new/directory`
+```
+hacker@dojo:~$ cd /some/new/directory
+hacker@dojo:~/some/new/directory$ cd /some/new/directory
+```
 
 This affects the "current working directory" of your process (in this case, the bash shell).
 Each process has a directory in which it's currently hanging out.
@@ -221,8 +227,10 @@ pwn.college{o8s3ohZi-E17s3Ro17UZOlrWB0O.dBTN1QDL5kTO0czW}
 
 Linux explicitly avoids automatically looking in the current directory when you provide a "naked" path. Consider the following:
 
-`hacker@dojo:~$ cd /challenge`
-`hacker@dojo:/challenge$ run`
+```
+hacker@dojo:~$ cd /challenge
+hacker@dojo:/challenge$ run
+```
 
 This will not invoke **/challenge/run**. This is actually a safety measure: if Linux searched the current directory for programs every time you entered a naked path, you could accidentally execute programs in your current directory that happened to have the same names as core system utilities! As a result, the above commands will yield the following error:
 
@@ -257,23 +265,27 @@ Typically, your shell session will start with your home directory as your curren
 
 The **~** in this prompt is the current working directory, with **~** being shorthand for **/home/hacker**. Bash provides and uses this shorthand because, again, most of your time will be spent in your home directory. Thus, whenever bash sees **~** provided as the start of an argument in a way consistent with a path, it will expand it to your home directory. Consider:
 
-`hacker@dojo:~$ echo LOOK: ~`
-`LOOK: /home/hacker`
-`hacker@dojo:~$ cd /`
-`hacker@dojo:/$ cd ~`
-`hacker@dojo:~$ cd ~/asdf`
-`hacker@dojo:~/asdf$ cd ~/asdf`
-`hacker@dojo:~/asdf$ cd ~`
-`hacker@dojo:~$ cd /home/hacker/asdf`
-`hacker@dojo:~/asdf$`
+```
+hacker@dojo:~$ echo LOOK: ~
+LOOK: /home/hacker
+hacker@dojo:~$ cd /
+hacker@dojo:/$ cd ~
+hacker@dojo:~$ cd ~/asdf
+hacker@dojo:~/asdf$ cd ~/asdf
+hacker@dojo:~/asdf$ cd ~
+hacker@dojo:~$ cd /home/hacker/asdf
+hacker@dojo:~/asdf$
+```
 
 Note that the expansion of **~** is an absolute path, and only the leading **~** is expanded. This means, for example, that **~/~** will be expanded to **/home/hacker/~** rather than **/home/hacker/home/hacker**.
 
 Fun fact: **cd** will use your home directory as the default destination:
 
-`hacker@dojo:~$ cd /tmp`
-`hacker@dojo:/tmp$ cd`
-`hacker@dojo:~$`
+```
+hacker@dojo:~$ cd /tmp
+hacker@dojo:/tmp$ cd
+hacker@dojo:~$
+```
 
 Note : The `cat` command in Linux is short for "concatenate" and is commonly used to read and display the contents of files. When you use `cat` followed by a filename, it outputs the file's contents to the terminal.
 
