@@ -1,7 +1,7 @@
 # Hello Hackers
 
 The command line lets you execute commands. 
-When you launch a terminal, if will execute a command line **shell** which will look like this:
+When you launch a terminal, it will execute a command line **shell** which will look like this:
 
 `hacker@dojo:~$`
 
