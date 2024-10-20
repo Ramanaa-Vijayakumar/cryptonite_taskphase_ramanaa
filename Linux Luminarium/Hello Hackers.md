@@ -69,7 +69,7 @@ Hello Hackers!
 hacker@dojo:~$
 ```
 
-In this case, the command was ***echo***, and ***Hello*** and ***Hackers!*** were the two argument sot ***echo***. Simple!
+In this case, the command was ***echo***, and ***Hello*** and ***Hackers!*** were the two arguments to ***echo***. Simple!
 
 ### CTF
 
